@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResourceGenerator : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class ResourceGenerator : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private float generationTime = 1f;
     [SerializeField] private int max = 15;
+    [SerializeField] private Image progress;
 
     private int number;
     private float timer;
@@ -36,12 +38,15 @@ public class ResourceGenerator : MonoBehaviour
 
                 timer = 0f;
             }
+
+            progress.fillAmount = timer / generationTime;
         }
     }
 
     public void Take()
     {
-        FindFirstObjectByType<MineralManager>().Add(type, number);
+        if (number > 0)
+            FindFirstObjectByType<MineralManager>().Add(type, number, transform.position);
 
         number = 0;
         UpdateInterface();

@@ -48,6 +48,7 @@ MonoBehaviour:
   circle: {fileID: 3895822847422506281}
   _renderer: {fileID: 2763964293742845510}
   scale: 10
+  buildingPart: {fileID: 0}
 --- !u!1001 &3574177227321197250
 PrefabInstance:
   m_ObjectHideFlags: 0
