@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d24b16f6d3b4f4e9016911f806cac7, type: 3}
+  m_Name: OxygenGenerator
+  m_EditorClassIdentifier: 
+  _name: Oxygen Generator
+  sprite: {fileID: 21300000, guid: 1d55db083d959d34bbb75c81c2cd97ce, type: 3}
+  prefab: {fileID: 2157593388353936975, guid: b9a7414ff0d4754489a0550b9ea20f6b, type: 3}
+  requirements:
+  - type: 0
+    number: 2
