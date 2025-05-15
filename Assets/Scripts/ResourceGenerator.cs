@@ -9,6 +9,7 @@ public class ResourceGenerator : MonoBehaviour
     [SerializeField] private float generationTime = 1f;
     [SerializeField] private int max = 15;
     [SerializeField] private Image progress;
+    [SerializeField] private Image mineralDisplay;
 
     private int number;
     private float timer;
@@ -18,6 +19,8 @@ public class ResourceGenerator : MonoBehaviour
         number = 0;
 
         UpdateInterface();
+
+        mineralDisplay.sprite = FindFirstObjectByType<MineralManager>().GetPreference(type).Sprite;
     }
 
     private void UpdateInterface()
@@ -41,6 +44,8 @@ public class ResourceGenerator : MonoBehaviour
 
             progress.fillAmount = timer / generationTime;
         }
+        else
+            progress.fillAmount = 1f;
     }
 
     public void Take()

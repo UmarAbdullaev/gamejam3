@@ -52,4 +52,11 @@ public class Health : MonoBehaviour
 
     // Optionally, you can expose the max health as well
     public float GetMaxHealth() => maxHealth;
+
+    public void Refill()
+    {
+        currentHealth = maxHealth;
+
+        OnHealthChanged.Invoke(currentHealth);
+    }
 }

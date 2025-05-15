@@ -12,7 +12,9 @@ public class MineralManager : MonoBehaviour
     public enum Type
     {
         Iron,
-        Gold
+        Gold,
+        Leaf,
+        Water,
     }
 
     [Serializable]

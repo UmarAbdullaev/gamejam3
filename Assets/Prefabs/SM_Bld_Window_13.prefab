@@ -216,7 +216,7 @@ MonoBehaviour:
     m_Name: Oxygen Generator
     m_Type: Foundation
     m_Thumbnail: {fileID: 2800000, guid: 1d55db083d959d34bbb75c81c2cd97ce, type: 3}
-    m_Identifier: 2c281c47437e4a4fa0322a1f6f5e1b0c
+    m_Identifier: d004a2c1bfe7476ba1b97a16c3780d6d
   m_ModelSettings:
     m_Models: []
     m_ModelIndex: 0
