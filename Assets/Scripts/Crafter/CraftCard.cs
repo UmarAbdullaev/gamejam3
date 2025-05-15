@@ -52,6 +52,7 @@ public class CraftCard : MonoBehaviour
         }
 
         canvasGroup.interactable = available;
+        canvasGroup.alpha = available ? 1f : .5f;
     }
 
     public void RequestCraft()

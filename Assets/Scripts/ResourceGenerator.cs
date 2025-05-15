@@ -51,7 +51,7 @@ public class ResourceGenerator : MonoBehaviour
     public void Take()
     {
         if (number > 0)
-            FindFirstObjectByType<MineralManager>().Add(type, number, transform.position);
+            FindFirstObjectByType<MineralManager>().Add(type, number, transform.position + Vector3.up);
 
         number = 0;
         UpdateInterface();

@@ -1,17 +1,22 @@
 using UnityEngine;
 using System.Collections.Generic;
 using DG.Tweening;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UI;
 
 public class TerritryManager : MonoBehaviour
 {
     public List<TerritoryBubble> territories = new List<TerritoryBubble>();
+    public int trees;
     [SerializeField] private Transform[] greens;
-    [SerializeField] private Slider terraformationSlider;
-    [SerializeField] private int fullFormation = 36;
+    [SerializeField] private int fullFormationArea = 21;
+    [SerializeField] private int fullFormationTree = 30;
     [SerializeField] private CanvasGroup victoryInterface;
+
+    [Space]
     [SerializeField] private TextMeshProUGUI terraformationText;
+    [SerializeField] private Image areaFill, treeFill;
+    [SerializeField] private TextMeshProUGUI treePercent, areaPercent;
 
     private void Start()
     {
@@ -23,7 +28,7 @@ public class TerritryManager : MonoBehaviour
         UpdateTerraformation();
     }
 
-    public void Add(TerritoryBubble territory)
+    public void AddTerritory(TerritoryBubble territory)
     {
         if (!territories.Contains(territory))
         {
@@ -33,7 +38,7 @@ public class TerritryManager : MonoBehaviour
         UpdateTerraformation();
     }
 
-    public void Remove(TerritoryBubble territory)
+    public void RemoveTerritory(TerritoryBubble territory)
     {
         if (territories.Contains(territory))
         {
@@ -71,12 +76,18 @@ public class TerritryManager : MonoBehaviour
         }
     }
 
-    private void UpdateTerraformation()
+    public void UpdateTerraformation()
     {
-        terraformationSlider.DOValue((float)territories.Count / fullFormation, .1f);
-        terraformationText.text = $"{(int)((float)territories.Count / fullFormation * 100)}% Habitable";
+        float areaValue = (float)territories.Count / fullFormationArea;
+        float treeValue = (float)trees / fullFormationTree + (areaValue * .2f);
 
-        if (territories.Count >= fullFormation)
+        treeFill.DOFillAmount(treeValue, .1f);
+        areaFill.DOFillAmount(areaValue, .1f);
+        treePercent.text = (int)(treeValue * 100) + "%";
+        areaPercent.text = (int)(areaValue * 100) + "%";
+        terraformationText.text = $"Terraformation ({(int)( (treeValue + areaValue) * 100 )}%)";
+
+        if (territories.Count >= fullFormationArea && trees >= fullFormationTree)
         {
             victoryInterface.DOFade(1f, 1f);
 

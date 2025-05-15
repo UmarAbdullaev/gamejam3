@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 3103855917032700334}
   - component: {fileID: 3351408206866962402}
   - component: {fileID: 5873506325016190970}
+  - component: {fileID: 2959603423040803469}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -193,7 +194,8 @@ MonoBehaviour:
     m_ClampMaxPosition: {x: 0, y: 0, z: 0}
     m_CanMovingIfPlaceable: 0
     m_DisableGameObjects: []
-    m_DisableMonoBehaviours: []
+    m_DisableMonoBehaviours:
+    - {fileID: 2959603423040803469}
     m_Material: {fileID: 2100000, guid: 75763a96044062145903eed7888a25f7, type: 2}
     m_IgnoreRenderers: []
     m_UseGridSnapping: 0
@@ -239,3 +241,15 @@ MonoBehaviour:
   m_RequireSocket: 0
   m_IgnoreSocket: 1
   m_ShowDebugs: 0
+--- !u!114 &2959603423040803469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9151355689915431508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f99671ea4d281274bad7f3d6d3d0094e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

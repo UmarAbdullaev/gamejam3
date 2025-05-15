@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     [SerializeField] private CanvasGroup healthBarCanvasGroup; // The CanvasGroup that holds the health bar
     [SerializeField] private Slider healthSlider;
     [SerializeField] private float healthBarVisibilityDuration = 1f; // Duration for health bar to be visible
+    [SerializeField] private Image fillImage;
+    [SerializeField] private Color defaultFillColor, damageFillColor;
 
     private float currentHealth;
     private float maxHealth = 100f; // Maximum health of the mineral
@@ -20,7 +22,15 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
         healthBarCanvasGroup.alpha = 0f; // Health bar starts invisible
 
-        OnHealthChanged += (float value) => healthSlider.DOValue(value / maxHealth, .1f);
+        OnHealthChanged += (float value) =>
+        {
+            fillImage.color = damageFillColor;
+            healthSlider.DOKill();
+            healthSlider.DOValue(value / maxHealth, .1f)
+                .OnComplete(() => fillImage.color = defaultFillColor);
+        };
+
+        fillImage.color = defaultFillColor;
     }
 
     public void TakeDamage(float amount)

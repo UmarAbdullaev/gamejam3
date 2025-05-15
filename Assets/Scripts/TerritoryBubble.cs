@@ -31,13 +31,13 @@ public class TerritoryBubble : MonoBehaviour
                 switch (state)
                 {
                     case BuildingPart.StateType.PLACED:
-                        territryManager.Add(this);
+                        territryManager.AddTerritory(this);
                         break;
                     case BuildingPart.StateType.DESTROY:
-                        territryManager.Remove(this);
+                        territryManager.RemoveTerritory(this);
                         break;
                     case BuildingPart.StateType.PREVIEW:
-                        territryManager.Remove(this);
+                        territryManager.RemoveTerritory(this);
                         break;
                 }
             });

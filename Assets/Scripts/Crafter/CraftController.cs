@@ -2,7 +2,6 @@ using DG.Tweening;
 using UnityEngine;
 using System.Collections.Generic;
 using EasyBuildSystem.Features.Runtime.Buildings.Placer;
-using EasyBuildSystem.Features.Runtime.Buildings.Manager;
 
 public class CraftController : MonoBehaviour
 {

@@ -18,6 +18,7 @@ using EasyBuildSystem.Features.Runtime.Buildings.Part;
 using EasyBuildSystem.Features.Runtime.Buildings.Group;
 
 using EasyBuildSystem.Features.Runtime.Extensions;
+using DG.Tweening;
 
 namespace EasyBuildSystem.Features.Runtime.Buildings.Manager
 {
@@ -359,6 +360,9 @@ namespace EasyBuildSystem.Features.Runtime.Buildings.Manager
                 position, Quaternion.Euler(rotation)).GetComponent<BuildingPart>();
 
             instancedBuildingPart.transform.localScale = scale;
+
+            instancedBuildingPart.transform.DOScale(new Vector3(1.1f, .9f, 1.1f), .05f)
+                .OnComplete(() => instancedBuildingPart.transform.DOScale(1f, .1f));
 
             instancedBuildingPart.ChangeState(BuildingPart.StateType.PLACED);
 
